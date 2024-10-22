@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WebpHub": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
