@@ -32,6 +32,7 @@ public partial class App : Application
     public static string CwebpFilePath { get; private set; }
     public static string DwebpFilePath { get; private set; }
     public static string Gif2WebpFilePath { get; private set; }
+    public static string DummyImage { get; private set; }
     public static bool IsProcessing { get; set; } = false;
 
     public App()
@@ -67,6 +68,9 @@ public partial class App : Application
 
         var Gif2WebpPath = await StorageFile.GetFileFromApplicationUriAsync(new Uri(@"ms-appx:///ExeFiles/gif2webp.exe"));
         Gif2WebpFilePath = Gif2WebpPath.Path;
+
+        var dummy = await StorageFile.GetFileFromApplicationUriAsync(new Uri(@"ms-appx:///Assets/unsopprtedFormat.png"));
+        DummyImage = dummy.Path;
 
         if (Current.RequestedTheme == ApplicationTheme.Light)
             MainWindow.AppTitleBar.ButtonForegroundColor = Colors.Black;

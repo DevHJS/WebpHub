@@ -1,5 +1,7 @@
 ﻿// Ignore Spelling: Popup
 
+using System.Net.NetworkInformation;
+
 namespace WEBPHUB.ViewModels;
 
 public partial class DecodeViewModel : ObservableObject
@@ -57,11 +59,17 @@ public partial class DecodeViewModel : ObservableObject
             ProgISActive = true;
             ViolateCondition = false;
             await Task.Run(() => DecodeView.WebpManager.ScriptRunner(App.DwebpFilePath, FullPath, FolderPath, DecodeView.WebpManager.Options, DecodeView.FormatType));
+
             await Task.Delay(1000);
             var name = Path.GetFileNameWithoutExtension(FullPath) + $"{DecodeView.FormatType}";
             var newImagePath = Path.Combine(FolderPath, name);
             var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
-            NewImageData = new(new DataExtractorService(newImageStorageFile));
+            var newData = new DataExtractorService(newImageStorageFile);
+
+            if (DecodeView.FormatType.Contains(".png") || DecodeView.FormatType.Contains(".tiff"))
+                NewImageData = new(newData);
+            else
+                NewImageData = new(newData) { FullPath = App.DummyImage };
 
             ProgISActive = false;
             OpenPop = true;
