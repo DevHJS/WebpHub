@@ -55,17 +55,20 @@ public partial class EncodeViewModel : ObservableObject
         else
         {
             ProgISActive = true;
-            await Task.Run(() => EncodeView.WebpManager.ScriptRunner(App.CwebpFilePath, FullPath, FolderPath, EncodeView.WebpManager.Options));
-            await Task.Delay(1000);
-            var name = Path.GetFileNameWithoutExtension(FullPath) + ".webp";
-            var newImagePath = Path.Combine(FolderPath, name);
-            var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
-            NewImageData = new(new DataExtractorService(newImageStorageFile));
+            bool isDone = await Task.Run(() => EncodeView.WebpManager.ScriptRunner(App.CwebpFilePath, FullPath, FolderPath, EncodeView.WebpManager.Options));
+            if(isDone is true)
+            {
+                var name = Path.GetFileNameWithoutExtension(FullPath) + ".webp";
+                var newImagePath = Path.Combine(FolderPath, name);
+                var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
+                NewImageData = new(new DataExtractorService(newImageStorageFile));
 
-            OpenPop = true;
-            InfobarOpen = true;
-            ProgISActive = false;
-            ViolateCondition = false;
+                OpenPop = true;
+                InfobarOpen = true;
+                ProgISActive = false;
+                ViolateCondition = false;
+            }
+            
         }
 
         App.IsProcessing = false;

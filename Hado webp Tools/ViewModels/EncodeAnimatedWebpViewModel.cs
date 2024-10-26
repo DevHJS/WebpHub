@@ -102,18 +102,20 @@ public partial class EncodeAnimatedWebpViewModel : ObservableObject
         else
         {
             ProgISActive = true;
-            await Task.Run(() => AnimatedWebpView.WebpManager.ScriptRunner(App.Gif2WebpFilePath, FullPath, FolderPath, AnimatedWebpView.WebpManager.Options));
+            bool isDone = await Task.Run(() => AnimatedWebpView.WebpManager.ScriptRunner(App.Gif2WebpFilePath, FullPath, FolderPath, AnimatedWebpView.WebpManager.Options));
 
-            await Task.Delay(1000);
-            ProgISActive = false;
-            var name = Path.GetFileNameWithoutExtension(FullPath) + ".webp";
-            var newImagePath = Path.Combine(FolderPath, name);
-            var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
-            NewImageData = new(new DataExtractorService(newImageStorageFile));
+            if (isDone is true)
+            {
+                ProgISActive = false;
+                var name = Path.GetFileNameWithoutExtension(FullPath) + ".webp";
+                var newImagePath = Path.Combine(FolderPath, name);
+                var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
+                NewImageData = new(new DataExtractorService(newImageStorageFile));
 
-            OpenPop = true;
-            InfobarOpen = true;
-            ViolateCondition = false;
+                OpenPop = true;
+                InfobarOpen = true;
+                ViolateCondition = false;
+            }
         }
 
         App.IsProcessing = false;

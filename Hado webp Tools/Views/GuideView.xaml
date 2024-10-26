@@ -18,11 +18,12 @@
 
 
 
-        <RichTextBlock Grid.Column="1">
+        <RichTextBlock Grid.Column="1" Foreground="{ThemeResource TextColor}">
             <Paragraph FontSize="45" TextAlignment="Center">Hi User</Paragraph>
             <Paragraph>
                 This app is was design to make your life easier, it leverage the power of libwebp exe files to create an easy way to convert other image formats to webp
-                format, anything you can do in this app you can do in using<Hyperlink NavigateUri="https://developers.google.com/speed/webp/download">LibWebP</Hyperlink>
+                format, anything you can do in this app you can do in using
+                <Hyperlink Foreground="{ThemeResource TextColor}" NavigateUri="https://developers.google.com/speed/webp/download">LibWebP</Hyperlink>
                 but this app makes life easier.<LineBreak />
                 <LineBreak />
                 Encode = convert jpg, png, tiff and webp images to a webp image<LineBreak />
@@ -32,7 +33,9 @@
                 the app support bulk conversion so you can convert images in mass, sadly the app doesn't support creating an animated webp from multiple images, hopefully in future releases this will be addressed<LineBreak />
                 the app can't display  pam, ppm or pgm images<LineBreak />
                 <LineBreak />
-                the app value your time, it tries to balance between resources consumption and user time, keep in your mind that the app tries to finish the job as quickly as possible so a rise in cpu and ram usage will occurs</Paragraph>
+                the app value your time, it tries to balance between resources consumption and user time, keep in your mind that the app tries to finish the job as quickly as possible so a rise in cpu and ram usage will occurs
+                <LineBreak/>loading large images or collections take some time
+            </Paragraph>
         </RichTextBlock>
     </Grid>
 </Page>

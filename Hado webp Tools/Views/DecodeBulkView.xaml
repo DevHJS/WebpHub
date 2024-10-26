@@ -36,7 +36,7 @@
                         <Grid>
                             <Image
                                 x:Name="Img"
-                                Width="120"
+                                Width="100"
                                 Height="80"
                                 Source="{Binding Location}"
                                 Stretch="Fill" />

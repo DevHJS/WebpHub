@@ -95,7 +95,7 @@
 
                 <Grid
                     Margin="3,0,3,0"
-                    BorderBrush="#323232"
+                    BorderBrush="{ThemeResource PrimaryControlColor}"
                     BorderThickness="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="25*" />
@@ -104,6 +104,7 @@
                     <TextBlock
                         Grid.Column="0"
                         Margin="0,0,10,0"
+                        Foreground="{ThemeResource TextColor}"
                         VerticalAlignment="Center"
                         Text="Name"
                         TextAlignment="Center" />
@@ -119,7 +120,7 @@
 
                 <Grid
                     Margin="3,0,3,0"
-                    BorderBrush="#323232"
+                    BorderBrush="{ThemeResource PrimaryControlColor}"
                     BorderThickness="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*" />
@@ -128,6 +129,7 @@
                     <TextBlock
                         Grid.Column="0"
                         Margin="0,0,10,0"
+                        Foreground="{ThemeResource TextColor}"
                         VerticalAlignment="Center"
                         Text="Path"
                         TextAlignment="Center" />
@@ -142,7 +144,7 @@
                 </Grid>
                 <Grid
                     Margin="3,0,3,0"
-                    BorderBrush="#323232"
+                    BorderBrush="{ThemeResource PrimaryControlColor}"
                     BorderThickness="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*" />
@@ -151,6 +153,7 @@
                     <TextBlock
                         Grid.Column="0"
                         Margin="0,0,10,0"
+                        Foreground="{ThemeResource TextColor}"
                         VerticalAlignment="Center"
                         Text="Size"
                         TextAlignment="Center" />
@@ -165,7 +168,7 @@
                 </Grid>
                 <Grid
                     Margin="3,0,3,0"
-                    BorderBrush="#323232"
+                    BorderBrush="{ThemeResource PrimaryControlColor}"
                     BorderThickness="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40*" />
@@ -174,6 +177,7 @@
                     <TextBlock
                         Grid.Column="0"
                         Margin="0,0,10,0"
+                        Foreground="{ThemeResource TextColor}"
                         VerticalAlignment="Center"
                         Text="Resolution"
                         TextAlignment="Center" />
@@ -188,7 +192,7 @@
                 </Grid>
                 <Grid
                     Margin="3,0,3,0"
-                    BorderBrush="#323232"
+                    BorderBrush="{ThemeResource PrimaryControlColor}"
                     BorderThickness="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*" />
@@ -197,6 +201,7 @@
                     <TextBlock
                         Grid.Column="0"
                         Margin="0,0,10,0"
+                        Foreground="{ThemeResource TextColor}"
                         VerticalAlignment="Center"
                         Text="Type"
                         TextAlignment="Center" />
@@ -266,7 +271,7 @@
 
                                     <Grid
                                         Margin="3,0,3,0"
-                                        BorderBrush="#323232"
+                                        BorderBrush="{ThemeResource PrimaryControlColor}"
                                         BorderThickness="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="20*" />
@@ -277,6 +282,7 @@
                                             Margin="0,0,10,0"
                                             VerticalAlignment="Center"
                                             Text="Name"
+                                            Foreground="{ThemeResource TextColor}"
                                             TextAlignment="Center" />
                                         <TextBox
                                             x:Name="OldNameTxt"
@@ -290,7 +296,7 @@
 
                                     <Grid
                                         Margin="3,0,3,0"
-                                        BorderBrush="#323232"
+                                        BorderBrush="{ThemeResource PrimaryControlColor}"
                                         BorderThickness="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="20*" />
@@ -299,6 +305,7 @@
                                         <TextBlock
                                             Grid.Column="0"
                                             Margin="0,0,10,0"
+                                            Foreground="{ThemeResource TextColor}"
                                             VerticalAlignment="Center"
                                             Text="Size"
                                             TextAlignment="Center" />
@@ -329,7 +336,7 @@
                                 <StackPanel Grid.Row="1">
                                     <Grid
                                         Margin="3,0,3,0"
-                                        BorderBrush="#323232"
+                                        BorderBrush="{ThemeResource PrimaryControlColor}"
                                         BorderThickness="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="20*" />
@@ -340,6 +347,7 @@
                                             Margin="0,0,10,0"
                                             VerticalAlignment="Center"
                                             Text="Name"
+                                            Foreground="{ThemeResource TextColor}"
                                             TextAlignment="Center" />
                                         <TextBox
                                             x:Name="NewNameTxt"
@@ -353,7 +361,7 @@
 
                                     <Grid
                                         Margin="3,0,3,0"
-                                        BorderBrush="#323232"
+                                        BorderBrush="{ThemeResource PrimaryControlColor}"
                                         BorderThickness="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="20*" />
@@ -362,6 +370,7 @@
                                         <TextBlock
                                             Grid.Column="0"
                                             Margin="0,0,10,0"
+                                            Foreground="{ThemeResource TextColor}"
                                             VerticalAlignment="Center"
                                             Text="Size"
                                             TextAlignment="Center" />

@@ -9,14 +9,14 @@
 
   <Identity
     Name="195a3ba3-d2a3-4579-aa35-706cbcd8b809"
-    Publisher="CN=haide"
+    Publisher="CN=hadostan"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="195a3ba3-d2a3-4579-aa35-706cbcd8b809" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>WEBPHUB</DisplayName>
-    <PublisherDisplayName>haide</PublisherDisplayName>
+    <PublisherDisplayName>Haider Jamil</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 

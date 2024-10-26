@@ -24,20 +24,34 @@
             Message="you can't change themes while the app is encoding or decoding images, the app needs to restart in order to change the themes"
             Severity="Warning" />
 
-
-        <ComboBox
-            x:Name="ThemeBox"
+        <StackPanel
             Grid.Row="0"
-            Width="200"
-            Height="70"
+            Width="300"
+            Height="300"
+            Margin="60"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            CompositeMode="SourceOver"
-            Header="Themes"
-            SelectionChanged="{x:Bind ViewModel.ChangeTheme, Mode=OneWay}">
-            <ComboBoxItem Content="Light" />
-            <ComboBoxItem Content="Dark" />
-        </ComboBox>
+            Orientation="Horizontal">
+
+            <Button
+                Width="100"
+                Height="70"
+                Margin="10"
+                Click="{x:Bind ViewModel.ToDark, Mode=OneWay}"
+                Content="Dark"
+                IsEnabled="{x:Bind ViewModel.EnableDark, Mode=OneWay}" />
+
+            <Button
+                Width="100"
+                Height="70"
+                Margin="10"
+                Click="{x:Bind ViewModel.ToLight, Mode=OneWay}"
+                Content="Light"
+                IsEnabled="{x:Bind ViewModel.EnableLight, Mode=OneWay}" />
+        </StackPanel>
+
+
+
 
         <InfoBar
             Grid.Row="1"

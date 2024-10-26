@@ -10,9 +10,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="using:WEBPHUB.ViewModels"
     x:Name="EncodeBulk"
-    NavigationCacheMode="Required"
     d:DataContext="{d:DesignInstance Type=viewmodels:EncodeBulkViewModel}"
     Background="{ThemeResource GridColor}"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
 
     <Grid>
@@ -37,7 +37,7 @@
                         <Grid>
                             <Image
                                 x:Name="Img"
-                                Width="120"
+                                Width="100"
                                 Height="80"
                                 Source="{Binding Location, Mode=TwoWay}"
                                 Stretch="Fill" />

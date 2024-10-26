@@ -58,22 +58,25 @@ public partial class DecodeViewModel : ObservableObject
         {
             ProgISActive = true;
             ViolateCondition = false;
-            await Task.Run(() => DecodeView.WebpManager.ScriptRunner(App.DwebpFilePath, FullPath, FolderPath, DecodeView.WebpManager.Options, DecodeView.FormatType));
+            bool isDone = await Task.Run(() => DecodeView.WebpManager.ScriptRunner(App.DwebpFilePath, FullPath, FolderPath, DecodeView.WebpManager.Options, DecodeView.FormatType));
 
-            await Task.Delay(1000);
-            var name = Path.GetFileNameWithoutExtension(FullPath) + $"{DecodeView.FormatType}";
-            var newImagePath = Path.Combine(FolderPath, name);
-            var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
-            var newData = new DataExtractorService(newImageStorageFile);
+            if (isDone is true)
+            {
+                var name = Path.GetFileNameWithoutExtension(FullPath) + $"{DecodeView.FormatType}";
+                var newImagePath = Path.Combine(FolderPath, name);
+                var newImageStorageFile = await StorageFile.GetFileFromPathAsync(newImagePath);
+                var newData = new DataExtractorService(newImageStorageFile);
 
-            if (DecodeView.FormatType.Contains(".png") || DecodeView.FormatType.Contains(".tiff"))
-                NewImageData = new(newData);
-            else
-                NewImageData = new(newData) { FullPath = App.DummyImage };
+                if (DecodeView.FormatType.Contains(".png") || DecodeView.FormatType.Contains(".tiff"))
+                    NewImageData = new(newData);
+                else
+                    NewImageData = new(newData) { FullPath = App.DummyImage };
 
-            ProgISActive = false;
-            OpenPop = true;
-            InfobarOpen = true;
+                ProgISActive = false;
+                OpenPop = true;
+                InfobarOpen = true;
+            }
+           
         }
 
         App.IsProcessing = false;

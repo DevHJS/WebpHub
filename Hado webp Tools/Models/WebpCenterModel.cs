@@ -20,7 +20,7 @@ public class WebpCenterModel
             return false;
     }
 
-    public async Task ScriptRunner(string exe, string input, string folderPath, string options = "")
+    public async Task<bool> ScriptRunner(string exe, string input, string folderPath , string options = "")
     {
         var filename = Path.GetFileNameWithoutExtension(input);
         var newFilename = Path.Combine(folderPath, $"{filename}.webp");
@@ -32,11 +32,12 @@ public class WebpCenterModel
             UseShellExecute = false,
             CreateNoWindow = true,
         };
-        Process.Start(info);
-        await Task.CompletedTask;
+        using var proc = Process.Start(info);
+        await proc.WaitForExitAsync();
+        return true;
     }
 
-    public async Task ScriptRunner(string exe, string input, string folderPath, string options, string format)
+    public async Task<bool> ScriptRunner(string exe, string input, string folderPath, string options, string format)
     {
         var filename = Path.GetFileNameWithoutExtension(input);
         var newFilename = Path.Combine(folderPath, $"{filename}{format}");
@@ -48,8 +49,9 @@ public class WebpCenterModel
             UseShellExecute = false,
             CreateNoWindow = true,
         };
-        Process.Start(info);
-        await Task.CompletedTask;
+        using var proc = Process.Start(info);
+        await proc.WaitForExitAsync();
+        return true;
     }
 
     public async Task ScriptRunnerBulk(string exe, List<ImageModel> list, string folderPath, string options = "")
