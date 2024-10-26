@@ -37,14 +37,30 @@ public partial class AppSettingViewModel : ObservableObject
 
     public void ToDark()
     {
-        ApplicationData.Current.LocalSettings.Values["themeSetting"] = 1;
-        var error = AppInstance.Restart("--restart");
+        if (App.IsProcessing is false)
+        {
+            ApplicationData.Current.LocalSettings.Values["themeSetting"] = 1;
+            var error = AppInstance.Restart("--restart");
+        }
+        else
+        {
+            ViolateCondition = true;
+        }
+        
     }
 
     public void ToLight()
     {
-        ApplicationData.Current.LocalSettings.Values["themeSetting"] = 0;
-        var error = AppInstance.Restart("--restart");
+        if (App.IsProcessing is false)
+        {
+            ApplicationData.Current.LocalSettings.Values["themeSetting"] = 0;
+            var error = AppInstance.Restart("--restart");
+        }
+        else
+        {
+            ViolateCondition = true;
+        }
+        
     }
 
 }
